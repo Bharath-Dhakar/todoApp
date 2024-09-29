@@ -1,9 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.TodoApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
 
-    <style name="Theme.TodoApp" parent="Base.Theme.TodoApp" />
-</resources>
+
+        <resources xmlns:tools="http://schemas.android.com/tools">
+            <!-- Base application theme. -->
+            <style name="Base.Theme.TodoApp" parent="Theme.Material3.DayNight.NoActionBar">
+                <!-- Customize your theme here. -->
+                <!-- Override button colors to neutral or custom colors -->
+                <item name="colorPrimary">@color/neutral_button_background</item> <!-- Customize primary color -->
+                <item name="colorOnPrimary">@color/neutral_button_text</item> <!-- Customize text color on button -->
+
+                <!-- Optional: Override colorPrimaryContainer if needed for filled buttons -->
+                <item name="colorPrimaryContainer">@color/neutral_button_background</item>
+                <item name="colorOnPrimaryContainer">@color/neutral_button_text</item>
+            </style>
+
+            <style name="Theme.TodoApp" parent="Base.Theme.TodoApp" />
+        </resources>
+

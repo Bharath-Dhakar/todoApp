@@ -24,7 +24,7 @@ class splash_screen : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             if (isFirstTime) {
                 // If first time, show Onboarding screens
-                startActivity(Intent(this, Onboarding::class.java))
+                startActivity(Intent(this, OnboardingActivity::class.java))
 
                 // Save that the user has seen the onboarding screens
                 val editor = sharedPref.edit()
