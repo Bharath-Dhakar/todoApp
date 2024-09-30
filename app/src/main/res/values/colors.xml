@@ -6,5 +6,7 @@
         <color name="neutral_button_background">#212121</color>
         <color name="neutral_button_text">#FFFFFF</color>
 
+    <color name="active_dot">#000000</color>
+    <color name="inactive_dot">#C0C0C0</color>
 
 </resources>
