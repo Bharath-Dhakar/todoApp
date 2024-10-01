@@ -42,4 +42,13 @@
 
         />
 
+    <Button
+        android:id="@+id/getStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Start"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone"
+        />
+
 </LinearLayout>

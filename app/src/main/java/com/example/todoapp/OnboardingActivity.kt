@@ -5,19 +5,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 
 class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var dotsLayout: LinearLayout
+    private lateinit var getStart: Button
     private lateinit var skipButton: Button
     private lateinit var dots: Array<TextView?>
 
@@ -28,28 +24,40 @@ class OnboardingActivity : AppCompatActivity() {
         // Initialize view components
         viewPager = findViewById(R.id.viewPager)
         dotsLayout = findViewById(R.id.dotsLayout)
-        skipButton = findViewById<Button>(R.id.skipbtn)
+        skipButton = findViewById(R.id.skipbtn)
+        getStart = findViewById(R.id.getStart)
 
         // Set up ViewPager with the adapter
         val onboardingPagerAdapter = OnboardingPagerAdapter(this)
         viewPager.adapter = onboardingPagerAdapter
 
-        // Set up dots indicator
-        setupDots(0)  // Starting with the first screen
+        // Set up dots indicator for the first page
+        setupDots(0)
+
+        // Register page change callback
         viewPager.registerOnPageChangeCallback(pageChangeCallback)
 
         // Skip button functionality
         skipButton.setOnClickListener {
-            // Go to main activity or the next part of the app
-            val intent = Intent(this, LoginActivity::class.java)
+            // Go to the main activity or the next part of the app
+            val intent = Intent(this, EntryActivity::class.java)
+            startActivity(intent)
+            finish()  // Finish onboarding activity
+        }
+
+        // Get Started button functionality
+        getStart.setOnClickListener {
+            // Go to the main activity or the next part of the app
+            val intent = Intent(this, EntryActivity::class.java)
             startActivity(intent)
             finish()  // Finish onboarding activity
         }
     }
 
-    // Setting up dots for each page of onboarding
+    // Function to set up dots for each page of onboarding
     private fun setupDots(position: Int) {
-        dots = arrayOfNulls(3)  // Replace 3 with the number of onboarding screens
+        val numPages = 3 // Number of onboarding pages
+        dots = arrayOfNulls(numPages)
         dotsLayout.removeAllViews()  // Clear the previous dots
 
         for (i in dots.indices) {
@@ -70,6 +78,17 @@ class OnboardingActivity : AppCompatActivity() {
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
             setupDots(position)
+
+            // If the user is on the last page, hide the skip button and dots
+            if (position == 2) {
+                skipButton.visibility = Button.GONE  // Hide skip button
+                dotsLayout.visibility = LinearLayout.GONE  // Hide dots
+                getStart.visibility = Button.VISIBLE  // Show Get Started button
+            } else {
+                skipButton.visibility = Button.VISIBLE  // Show skip button
+                dotsLayout.visibility = LinearLayout.VISIBLE  // Show dots
+                getStart.visibility = Button.GONE  // Hide Get Started button
+            }
         }
     }
 
@@ -77,5 +96,4 @@ class OnboardingActivity : AppCompatActivity() {
         super.onDestroy()
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback)
     }
-
-    }
+}
