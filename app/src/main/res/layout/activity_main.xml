@@ -1,19 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="12dp"
+    android:background="@color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Sticky Section (Remains on top) -->
+    <LinearLayout
+        android:id="@+id/sticky_section"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:paddingTop="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- First Section with Square Icon and Right-aligned Text -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <!-- First ImageView (Square with icon inside) -->
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/icons_box"
+                android:background="@drawable/squre"
+                android:padding="8dp"
+                android:layout_alignParentStart="true"/>
+
+            <!-- Right-aligned container for icon and text -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:background="@drawable/rectangle"
+                android:padding="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+
+                <!-- Icon (ImageView on the left) -->
+                <ImageView
+                    android:id="@+id/icon_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:src="@drawable/notification"
+                    android:contentDescription="Icon"/>
+
+                <!-- TextView (Number next to the icon) -->
+                <TextView
+                    android:id="@+id/text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/icon_image"
+                    android:layout_centerVertical="true"
+                    android:text="773K"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_marginStart="2dp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- User Greeting Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp"
+            >
+
+            <!-- Greeting Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hey!"
+                android:textColor="#888888"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Horizontal layout for Name and Notification Icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- User Name -->
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bharath Nagar"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    android:textColor="#000000" />
+
+                <!-- Notification Icon -->
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/notification"
+                    android:background="@drawable/circle_filled"
+                    android:padding="8dp"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Scrollable Section (Starting from "Daily Streak Section") -->
+    <ScrollView
+        android:id="@+id/scrollable_section"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sticky_section"
+        android:scrollbars="none"> <!-- Hide the scroll bar -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Daily Streak Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Daily Streak"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#202020"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- First Content Block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/section"
+                android:padding="16dp"/>
+
+            <!-- Second Content Block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/section"
+                android:padding="16dp"
+                android:layout_marginTop="24dp"/>
+
+            <!-- Third Content Block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/section"
+                android:padding="16dp"
+                android:layout_marginTop="24dp"/>
+
+            <!-- Third Content Block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/section"
+                android:padding="16dp"
+                android:layout_marginTop="24dp"/>
+            <!-- Third Content Block -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/section"
+                android:padding="16dp"
+                android:layout_marginTop="24dp"/>
+            
+        </LinearLayout>
+
+
+
+
+
+    </ScrollView>
+</RelativeLayout>
