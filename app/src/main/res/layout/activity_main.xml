@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
     android:background="@color/white">
 
     <!-- Sticky Section (Remains on top) -->
@@ -13,13 +12,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:paddingTop="16dp">
+        android:paddingTop="16dp"
+        android:background="@drawable/ab_shape"
+        android:padding="24dp"
+
+        >
 
         <!-- First Section with Square Icon and Right-aligned Text -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="30dp">
 
             <!-- First ImageView (Square with icon inside) -->
             <ImageView
@@ -68,16 +71,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingTop="16dp"
-            android:paddingBottom="24dp"
+            android:paddingBottom="18dp"
             >
 
-            <!-- Greeting Text -->
+<!--             Greeting Text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hey!"
-                android:textColor="#888888"
-                android:textSize="14sp"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="4dp" />
 
             <!-- Horizontal layout for Name and Notification Icon -->
@@ -95,7 +99,8 @@
                     android:layout_weight="1"
                     android:text="Bharath Nagar"
                     android:textStyle="bold"
-                    android:textSize="28sp"
+                    android:paddingTop="10dp"
+                    android:textSize="35sp"
                     android:textColor="#000000" />
 
                 <!-- Notification Icon -->
@@ -121,14 +126,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="12dp"
+            >
 
             <!-- Daily Streak Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Your Daily Streak"
-                android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="#202020"
                 android:layout_marginTop="16dp"
@@ -148,7 +154,9 @@
                 android:layout_height="200dp"
                 android:background="@drawable/section"
                 android:padding="16dp"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="24dp">
+
+            </LinearLayout>
 
             <!-- Third Content Block -->
             <LinearLayout
@@ -176,8 +184,87 @@
         </LinearLayout>
 
 
-
-
-
     </ScrollView>
+
+    <!-- Floating Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/floating_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+       android:layout_margin="12dp"
+        android:background="@drawable/nav"
+        android:elevation="8dp">
+
+        <!-- Procrastinate Button -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+
+            >
+
+            <ImageView
+                android:id="@+id/procrastinate_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/sleep"
+                android:contentDescription="Procrastinate Icon" />
+
+            <TextView
+                android:id="@+id/procrastinate_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Procrastinate"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Center Plus Button -->
+        <ImageView
+            android:id="@+id/plus_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="Add"
+            android:src="@drawable/plus"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        </LinearLayout>
+
+        <!-- Calendar Button -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="16dp">
+
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/calender"
+                android:contentDescription="Calendar Icon" />
+
+            <TextView
+                android:id="@+id/calendar_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calendar"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
