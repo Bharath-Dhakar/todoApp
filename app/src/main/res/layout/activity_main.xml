@@ -5,18 +5,15 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!-- Sticky Section (Remains on top) -->
+    <!-- Sticky Section (Remains at the top) -->
     <LinearLayout
         android:id="@+id/sticky_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:paddingTop="16dp"
-        android:background="@drawable/ab_shape"
         android:padding="24dp"
-
-        >
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ab_shape">
 
         <!-- First Section with Square Icon and Right-aligned Text -->
         <RelativeLayout
@@ -24,16 +21,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp">
 
-            <!-- First ImageView (Square with icon inside) -->
+            <!-- Icon (Square) -->
             <ImageView
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:src="@drawable/icons_box"
-                android:background="@drawable/squre"
+                android:background="@drawable/square"
                 android:padding="8dp"
                 android:layout_alignParentStart="true"/>
 
-            <!-- Right-aligned container for icon and text -->
+            <!-- Right-aligned icon and text -->
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="44dp"
@@ -42,7 +39,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true">
 
-                <!-- Icon (ImageView on the left) -->
                 <ImageView
                     android:id="@+id/icon_image"
                     android:layout_width="wrap_content"
@@ -51,7 +47,6 @@
                     android:src="@drawable/notification"
                     android:contentDescription="Icon"/>
 
-                <!-- TextView (Number next to the icon) -->
                 <TextView
                     android:id="@+id/text_view"
                     android:layout_width="wrap_content"
@@ -70,21 +65,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp"
-            android:paddingBottom="18dp"
-            >
+            android:paddingVertical="18dp">
 
-<!--             Greeting Text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hey!"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginVertical="4dp" />
 
-            <!-- Horizontal layout for Name and Notification Icon -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,7 +89,6 @@
                     android:layout_weight="1"
                     android:text="Bharath Nagar"
                     android:textStyle="bold"
-                    android:paddingTop="10dp"
                     android:textSize="35sp"
                     android:textColor="#000000" />
 
@@ -109,26 +98,24 @@
                     android:layout_height="44dp"
                     android:src="@drawable/notification"
                     android:background="@drawable/circle_filled"
-                    android:padding="8dp"
-                    android:layout_gravity="center_vertical" />
+                    android:padding="8dp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Scrollable Section (Starting from "Daily Streak Section") -->
+    <!-- Scrollable Section (below sticky) -->
     <ScrollView
         android:id="@+id/scrollable_section"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/sticky_section"
-        android:scrollbars="none"> <!-- Hide the scroll bar -->
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp"
-            >
+            android:padding="12dp">
 
             <!-- Daily Streak Section -->
             <TextView
@@ -141,24 +128,13 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="8dp" />
 
-            <!-- First Content Block -->
+            <!-- Content Blocks -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/section"
                 android:padding="16dp"/>
 
-            <!-- Second Content Block -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/section"
-                android:padding="16dp"
-                android:layout_marginTop="24dp">
-
-            </LinearLayout>
-
-            <!-- Third Content Block -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -166,27 +142,51 @@
                 android:padding="16dp"
                 android:layout_marginTop="24dp"/>
 
-            <!-- Third Content Block -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/section"
                 android:padding="16dp"
                 android:layout_marginTop="24dp"/>
-            <!-- Third Content Block -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/section"
                 android:padding="16dp"
                 android:layout_marginTop="24dp"/>
-            
+
         </LinearLayout>
-
-
     </ScrollView>
 
+
+
+
+
     <!-- Floating Navigation Bar -->
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="45dp"
+        >
+
+    <ImageView
+        android:id="@+id/plus_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="Add"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/plus"
+        android:layout_gravity="center"/>
+
     <LinearLayout
         android:id="@+id/floating_nav_bar"
         android:layout_width="match_parent"
@@ -194,7 +194,6 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-       android:layout_margin="12dp"
         android:background="@drawable/nav"
         android:elevation="8dp">
 
@@ -203,44 +202,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-
-            >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/procrastinate_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/sleep"
-                android:contentDescription="Procrastinate Icon" />
+                android:contentDescription="Procrastinate Icon"/>
 
             <TextView
                 android:id="@+id/procrastinate_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Procrastinate"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
 
-        <!-- Center Plus Button -->
-        <ImageView
-            android:id="@+id/plus_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="Add"
-            android:src="@drawable/plus"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="60dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-        </LinearLayout>
 
         <!-- Calendar Button -->
         <LinearLayout
@@ -248,22 +226,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginStart="16dp">
+            android:layout_marginStart="150dp">
 
             <ImageView
                 android:id="@+id/calendar_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/calender"
-                android:contentDescription="Calendar Icon" />
+                android:contentDescription="Calendar Icon"/>
 
             <TextView
                 android:id="@+id/calendar_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Calendar"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
+    </LinearLayout>
 
     </LinearLayout>
 
